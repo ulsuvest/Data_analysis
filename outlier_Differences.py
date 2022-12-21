@@ -28,8 +28,8 @@ def runAllData(number,numExc):
         meanDiffx = mean(x)
         medianDiffx = median(x)
         stdDiffx = stdev(x)
-        borderUpx = medianDiffx + stdDiffx
-        borderDownx = medianDiffx - stdDiffx
+        borderUpx = medianDiffx + 1.5*stdDiffx
+        borderDownx = medianDiffx - 1.5*stdDiffx
         # Y Data
         meanDiffy = mean(y)
         stdDiffy = stdev(y)
@@ -51,7 +51,7 @@ def runAllData(number,numExc):
             else:
                 deltaValue_withOut.append(i)
 
-        for j in y:
+        '''for j in y:
             if j <= borderUpy or j >= borderDowny:
                 deltaPercentage_withOut.append(j)
             else:
@@ -61,7 +61,7 @@ def runAllData(number,numExc):
             if k <= borderUpz or k >= borderDownz:
                 deltaTime_withOut.append(k)
             else:
-                continue
+                continue'''
         
         df_without_outliers = {"deltaValue_withOut": deltaValue_withOut}
         dataFrame_without_Outliers = pd.DataFrame(df_without_outliers)
